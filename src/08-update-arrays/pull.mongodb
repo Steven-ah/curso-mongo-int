@@ -1,0 +1,30 @@
+use("platzi_store")
+
+/* Remover un solo elemento del array
+db.inventory.updateMany(
+    / query
+    {
+        / Si se deja sin query traerá TODOS los elementos de la coleccion.
+    },
+    {
+        $pull: {
+            tags: "book"
+        }
+    }
+)
+*/
+
+// Remover varios elementos del array
+db.inventory.updateMany(
+    // * query
+    {
+        // * Si se deja sin query traerá TODOS los elementos de la coleccion.
+    },
+    {
+        $pull: {
+            tags: {
+                    $in: ["appliance", "school"]
+            }
+        }
+    }
+)
