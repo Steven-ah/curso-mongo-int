@@ -1,0 +1,18 @@
+use("platzi_store")
+
+// Se debe de tener en cuenta que el upsert solo funciona en updateOne
+
+db.iot.updateOne(
+    {
+        sensor: "A001",
+        date: "2022-01-04"
+    },
+    {
+        $push:{
+            readings: 12434 
+        }
+    },
+    {
+        upsert: true // Habilita el elemento para que realice un upsert
+    }
+)

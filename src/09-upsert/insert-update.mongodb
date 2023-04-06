@@ -1,0 +1,32 @@
+use("platzi_store")
+
+// db.iot.insertOne({
+//     sensor: "A001",
+//     date: "2022-01-03",
+//     readings: [1212]
+// })
+
+// db.iot.updateOne(
+//     {
+//         sensor: "A001",
+//         date: "2022-01-03"
+//     },
+//     {
+//         $pop: {
+//             readings: 1 // Si se indica uno, significa que se eliminará el ultiumo elemento
+//         }
+//     }
+// )
+
+db.iot.updateOne(
+    {
+        sensor: "A001",
+        date: "2022-01-03"
+    },
+    {
+        $push:{
+            readings: 2323 // Se debe de insertar el valor solo si se desea agregarlo al array existente
+        }
+    }
+)
+
