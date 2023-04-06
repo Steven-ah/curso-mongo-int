@@ -1,0 +1,12 @@
+use("platzi_store")
+
+db.products.updateOne(
+    // query
+    {_id: ObjectId("642efd4fcd83e598677f9ae5")}, // ! Para poder usar los id generados por mongo, debemos usar la función objectId, referenciarlos directamente como un string no tomará el elemento
+    // change => operators
+    {
+        $inc: {
+            price: 100
+        }
+    }
+)

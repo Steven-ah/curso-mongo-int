@@ -1,0 +1,34 @@
+use("platzi_store")
+
+db.products.drop() // ! Tener cuidado, con eso se están eliminando TODOS los documentos de una collección. Es equivalente a un Truncate
+
+db.products.insertMany([
+    {
+        _id: 1,
+        name: "Product 1",
+        price: 100
+    },
+    {
+        _id: 2,
+        name: "Product 2",
+        price: 20
+    },
+    {
+        _id: 3,
+        name: "Product 3",
+        price: 120
+    },
+    {
+        _id: 4,
+        name: "Product 4",
+        price: 120
+    },
+    {
+        name: "Product 5",
+        price: 19319
+    }
+])
+
+// ! Tener en cuenta que, mongo realiza las acciones hasta dónde encuentra un error. Es decir, si tenemos 5 elementos y falla en el elemento 3, no insertará los siguientes elementos. Pero los primeros 3 sí serán insertados. Además, el devolverá el error, pero igual insertará los primeros datos.
+
+db.products.find()
