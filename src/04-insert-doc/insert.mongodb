@@ -1,0 +1,16 @@
+use("platzi_store")
+
+db.products.insertOne({
+    _id: 1,
+    name: "Product 1",
+    price: 1000
+})
+
+// ! Cosas a tener en cuenta. El playground solo retorna el output de la ultima instrucción
+db.products.insertOne({
+    _id: 2,
+    name: "Product 2",
+    price: 100
+})
+
+// * Se puede enviar el documento sin id y mongo se encargará de generar id únicos para los documentos, en caso de que se lo indiquemos, debemos de ser nosotros quienes aseguremos que los id sean únicos.
