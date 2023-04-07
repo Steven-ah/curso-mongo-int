@@ -1,0 +1,25 @@
+use("sample_training")
+
+// db.routes.find({ airline: "E70" })
+
+// forma implicita de combinar and y or
+db.routes.find({
+    airplane: "E70",
+    $or: [
+        { dst_airport: "BOG"},
+        { src_airport: "BOG"},
+    ]
+}).count()
+
+// forma explicita
+db.routes.find({
+    $and: [
+    { airplane: "E70" },
+    {
+        $or: [
+            { dst_airport: "BOG"},
+            { src_airport: "BOG"},
+        ]
+    }
+    ]
+}).count()

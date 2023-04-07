@@ -1,0 +1,33 @@
+use("platzi_store")
+
+// $in, sirve para objetos y arrays
+// db.inventory.find({ qty: { $in: [20, 25] } })
+// db.inventory.find({ tags: { $in: ["book", "electronics"] } })
+
+// $nin (not in), sirve para objetos y arrays
+// db.inventory.find({ qty: { $nin: [20, 25] } })
+// db.inventory.find({ tags: { $nin: ["book", "electronics"] } })
+
+//db.inventory.find({ tags: "book" }) // Equivalente a usar $in
+//db.inventory.find({ tags: ["school", "book"] }) // Se trata de buscar por el array exacto.
+
+// Los siguientes operadores solo funcionan para array
+
+// $all
+//db.inventory.find({ tags: { $all: ["school", "book"] } }) // Este sirve para devolver un array que contenga todos los elementos enunciados en el array. A diferencia del in, TOOS deben de estar, en el in, con que esté uno es suficiente.
+
+// $size (Se busca que el array tenga cierta cantida de elementos)
+// db.inventory.find({ tags: { $size: 2 }})
+
+//$elemMatch
+db.survey.find({ 
+        results: { 
+            $elemMatch: {
+                product: "xyz",
+                score: { 
+                    $gte: 7 
+                }
+            }
+        }
+    }
+)

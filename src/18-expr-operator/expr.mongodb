@@ -1,0 +1,10 @@
+use("platzi_store")
+
+// db.monthlyBudget.find({ spent: { $gte: 100 } })
+
+// Esto permite realizar expresiones al momento de consultar
+db.monthlyBudget.find({
+    $expr: {
+        $gte: ["$spent", "$budget"] // Esto indica que se traigan solo los elementos en los que el campo Spent sea mayor al campo Budget
+    }
+})

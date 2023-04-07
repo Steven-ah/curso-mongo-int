@@ -1,0 +1,10 @@
+use("platzi_store")
+
+// Usando $eq
+//db.inventory.find({ qty: 20}) // Forma impicita de usarlo
+//db.inventory.find({ qty: { $eq: 20 } }) // Forma explicita
+// db.inventory.find({ "item.code": "123" }) // Forma para buscar en subdocumentos. Se debe de tener en cuenta que se debe de usar comillas para el nombre de la propiedad
+db.inventory.find({ "item.code": { $eq: "123" } }) // Forma explicítia
+
+// usando $ne
+db.inventory.find({ qty: { $ne: 20 } })

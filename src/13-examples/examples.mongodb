@@ -1,0 +1,13 @@
+use("platzi_store")
+
+
+db.iot.updateMany(
+    //query
+    { sensor: "A001"},
+    // update
+    {
+        $pull: {
+            readings: { $gte: 3 } // Se puede usar como parte de los pull en las colecciones
+        }
+    }
+)
